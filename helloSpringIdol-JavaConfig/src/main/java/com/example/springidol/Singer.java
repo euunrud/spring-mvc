@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 
 @Component("lena")
 public class Singer implements Performer, BeanNameAware {
+	@Value("singer")
 	private String name;
 	private Song song;
 	

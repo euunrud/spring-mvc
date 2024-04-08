@@ -14,6 +14,10 @@ public class Instrumentalist implements Performer, BeanNameAware {
 	@Value("${kenny.song.title}")	
 	private String song;
 
+	@Value("instrum")
+	private String name;
+
+	public String getName() { return this.name;	}
 	public void setSong(String song) {
 		this.song = song;
 	}

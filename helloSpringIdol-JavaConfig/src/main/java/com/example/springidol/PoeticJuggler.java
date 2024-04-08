@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 public class PoeticJuggler extends Juggler {
 	private Poem poem;
 
+	@Value("poeJ")
+	private String name;
+
+	public String getName() { return this.name;	}
+
 	@Autowired(required = false)
 	public PoeticJuggler(Poem poem) {
 		super();

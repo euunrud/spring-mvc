@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("hank")
@@ -34,6 +35,10 @@ public class OneManBand implements Performer, BeanNameAware {
 
 	private String beanName;
 
+	@Value("onemanBand")
+	private String name;
+
+	public String getName() { return this.name;	}
 	@Override
 	public void setBeanName(String name) {
 		this.beanName = name;

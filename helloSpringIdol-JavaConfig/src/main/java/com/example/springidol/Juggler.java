@@ -1,6 +1,7 @@
 package com.example.springidol;
 
 import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.annotation.Value;
 
 public class Juggler implements Performer, BeanNameAware {
 	private int beanBags = 3;
@@ -18,6 +19,10 @@ public class Juggler implements Performer, BeanNameAware {
 
 	private String beanName;
 
+	@Value("juggler")
+	private String name;
+
+	public String getName() { return this.name;	}
 	@Override
 	public void setBeanName(String name) {
 		this.beanName = name;
