@@ -1,12 +1,13 @@
 package com.example.springidol;
 
-import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 @Component("lena")
 public class Singer implements Performer, BeanNameAware {
+	@Value("singer")
 	private String name;
 	private Song song;
 	
@@ -40,9 +41,9 @@ public class Singer implements Performer, BeanNameAware {
 	}
 	
 	@Override
-	public void perform() throws PerformanceException {
-		System.out.println(name + " is singing a song \"" + song.getTitle() + "\""
-							+ " by " + song.getArtist());
+	public String perform() throws PerformanceException {
+		return name + " is singing a song \"" + song.getTitle() + "\""
+							+ " by " + song.getArtist();
 	}
 
 	private String beanName;

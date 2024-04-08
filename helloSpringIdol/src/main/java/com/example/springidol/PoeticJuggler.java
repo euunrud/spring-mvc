@@ -8,6 +8,11 @@ import org.springframework.stereotype.Component;
 public class PoeticJuggler extends Juggler {
 	private Poem poem;
 
+	@Value("poeJ")
+	private String name;
+
+	public String getName() { return this.name;	}
+
 	@Autowired(required = false)
 	public PoeticJuggler(Poem poem) {
 		super();
@@ -20,9 +25,9 @@ public class PoeticJuggler extends Juggler {
 		this.poem = poem;
 	}
 
-	public void perform() throws PerformanceException {
+	public String perform() throws PerformanceException {
 		super.perform();
-		System.out.println("While reciting...");
 		poem.recite();
+		return "While reciting...";
 	}
 }

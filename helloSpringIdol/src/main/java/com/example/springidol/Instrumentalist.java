@@ -14,6 +14,10 @@ public class Instrumentalist implements Performer, BeanNameAware {
 	@Value("${kenny.song.title}")	
 	private String song;
 
+	@Value("instrum")
+	private String name;
+
+	public String getName() { return this.name;	}
 	public void setSong(String song) {
 		this.song = song;
 	}
@@ -34,9 +38,10 @@ public class Instrumentalist implements Performer, BeanNameAware {
 		return instrument;
 	}
 
-	public void perform() throws PerformanceException {
-		System.out.print("Playing " + song + " : ");
+	public String perform() throws PerformanceException {
+		String print = "Playing " + song + " : ";
 		instrument.play();
+		return print;
 	}
 	
 	private String beanName;
