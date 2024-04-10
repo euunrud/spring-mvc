@@ -21,15 +21,6 @@ public class HelloService {
 		}
 	}
 
-	public Performer getPerformer(String id) {
-		// for (Performer performer : performers) {
-		// 	if(performer.getName() == id){
-		// 		return performer;
-		// 	}
-		// }
-		// return null;
-		return performers.get(id);
-	}
 	public String getGreeting() {		// business method
 		int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
 		if (hour >= 6 && hour <= 10) {
@@ -40,5 +31,10 @@ public class HelloService {
 			return "Good evening! ";
 		}
 		return "Hello! ";
+	}
+
+	public String getPerformer(String id) {
+		Performer performer = performers.get(id);
+		return performer.perform();
 	}
 }
